@@ -52,7 +52,7 @@ class ChavesGrpcServer(
             )
             return
         }
-
+        println(novaChave.tipoConta.toString())
         val contaItauResponse: ContaItauResponse = contasItauClient.buscaContaPorTipo(novaChave.codigoCliente, novaChave.tipoConta.toString())
         val conta: Conta = contaItauResponse.toModel()
 

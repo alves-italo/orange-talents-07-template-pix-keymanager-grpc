@@ -9,6 +9,6 @@ import io.micronaut.http.client.annotation.Client
 @Client("\${itau.contas.url}")
 interface ContaItauClient {
 
-    @Get("/clientes/{codigoCliente}/contas")
-    fun buscaContaPorTipo(@PathVariable("codigoCliente") codigoCliente: String, @QueryValue tipoConta: String): ContaItauResponse
+    @Get("/clientes/{codigoCliente}/contas{?tipo}")
+    fun buscaContaPorTipo(@PathVariable("codigoCliente") codigoCliente: String, @QueryValue tipo: String): ContaItauResponse
 }
