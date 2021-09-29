@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.zupacademy.italo";
+option java_outer_classname = "Chaves";
+option objc_class_prefix = "HLW";
+
+package com.zupacademy.italo;
+
+service ChavesService {
+  rpc cadastra (CadastraChaveRequest) returns (CadastraChaveReply) {}
+}
+
+message CadastraChaveRequest {
+  enum TipoChave {
+    UNKNOWN_TIPO_CHAVE = 0;
+    CPF = 1;
+    TELEFONE = 2;
+    EMAIL = 3;
+    ALEATORIA = 4;
+  }
+
+  enum TipoConta {
+    UNKNOWN_TIPO_CONTA = 0;
+    CONTA_CORRENTE = 1;
+    CONTA_POUPANCA = 2;
+  }
+
+  string codigoCliente = 1;
+  TipoChave tipoChave = 2;
+  string chave = 3;
+  TipoConta tipoConta = 4;
+}
+
+message CadastraChaveReply {
+  string pixId = 1;
+}
